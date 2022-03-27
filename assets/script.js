@@ -4,9 +4,9 @@ const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
-const timeCount = quiz_box.querySelector(".timer_sec");
+const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeLine = quiz_box.querySelector("header .time_line");
-const timeOff = quiz_box.querySelector("header .time_line");
+const timeOff = quiz_box.querySelector("header .time_text");
 
 const option_list = document.querySelector(".option_list");
 
@@ -110,6 +110,8 @@ function optionSelected(answer){
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     let allOptions = option_list.children.length;
+    userScore += 1;
+    console.log(userScore);
     if(userAns == correctAns){
         userScore += 1;
         console.log(userScore);
@@ -131,7 +133,7 @@ function optionSelected(answer){
     }
 
     //once user selected disable all options
-    for (let i = 0; index < allOptions; i++) {
+    for (let i = 0; i < allOptions; i++) {
         option_list.children[i].classList.add("disabled");
     }
     next_btn.style.display = "block";
@@ -140,7 +142,7 @@ function optionSelected(answer){
 function showResultBox() {
     info_box.classList.remove("activeInfo"); // hides the Info Box
     quiz_box.classList.remove("activeQuiz"); // hides the Quiz Box
-    result_box.classList.add("activeQuiz"); // shows the Results Box
+    result_box.classList.add("activeResult"); // shows the Results Box
     const scoreText = result_box.querySelector(".score_text");
     if (userScore > 3){
         let scoreTag = '<span>and congrats! You got <p>'+ userScore +'</p> out of <p>'+ questions.length + '</p></span>';
@@ -188,7 +190,6 @@ function startTimer(time){
 }
 
 function startTimerLine(time){
-    
     counterLine = setInterval(timer, 29);
     function timer(){
         time += 1;
@@ -201,6 +202,6 @@ function startTimerLine(time){
 
 function queCounter(index) {
     const bottom_ques_counter = quiz_box.querySelector(".total_que");
-    let totalQuesCountTag = '<span><p>' + que_count + '</p>of<p>' + questions.length + '</p>Questions</span>';
+    let totalQuesCountTag = '<span><p>' + index + '</p>of<p>' + questions.length + '</p>Questions</span>';
     bottom_ques_counter.innerHTML = totalQuesCountTag;
 }
