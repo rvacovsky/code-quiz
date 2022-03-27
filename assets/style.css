@@ -18,7 +18,16 @@ body {
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),
                 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: all 0.3s ease;
 
+}
+
+.info_box.activeInfo,
+.quiz_box.activeQuiz{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Start Quiz Button Styling */
@@ -215,13 +224,13 @@ section .option_list .option:hover{
     pointer-events: none;
 }
 
-.option-list .option .icon.tick{
+.option-list .option .icon.check{
     color: green;
     border: green;
     background: white;
 }
 
-.option-list .option .icon.cross{
+.option-list .option .icon.xmark{
     color: red;
     border: red;
     background: white;
