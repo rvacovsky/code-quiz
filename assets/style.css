@@ -45,6 +45,8 @@ body {
 
 .info_box{
     width: 540px;
+    margin: 10px;
+    padding: 5px;
     background: white;
     border-radius: 5px;
     opacity: 0;
@@ -63,12 +65,13 @@ body {
     font-weight: 600;
 }
 
-.info_box .info-list .info{
+.info_box .info_list .info{
     margin: 5px 0;
+    padding: 10px;
     font-size: 17px;
 }
 
-.info_box .info-list .info span{
+.info_box .info_list .info span{
     font-weight: 600;
     color:rgb(75, 4, 75);
 }
@@ -213,7 +216,7 @@ section .option_list .option:hover{
     margin-bottom: 0px;
 }
 
-.option-list .option .icon{
+.option_list .option .icon{
     height: 36px;
     width: 26px;
     border: 2px solid transparent;
@@ -224,19 +227,19 @@ section .option_list .option:hover{
     pointer-events: none;
 }
 
-.option-list .option .icon.check{
+.option_list .option .icon.check{
     color: green;
     border: green;
     background: white;
 }
 
-.option-list .option .icon.xmark{
+.option_list .option .icon.xmark{
     color: red;
     border: red;
     background: white;
 }
 
-.quiz-box footer{
+.quiz_box footer{
     height: 60px;
     width: 100%;
     padding: 0 30px;
@@ -245,7 +248,7 @@ section .option_list .option:hover{
     justify-content: space-between;
 }
 
-.quiz-box footer .total_que span{
+.quiz_box footer .total_que span{
     display: flex;
     user-select: none;
 }
@@ -264,6 +267,7 @@ footer .next_btn{
     padding: 0 13px;
     font-size: 18px;
     font-weight: 400;
+    border-radius: 5px;
     border: none;
     outline: none;
     color: white;

@@ -5,7 +5,7 @@ const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 
-//When 'Start Quiz' is clicked, whos the Info Box
+//When 'Start Quiz' is clicked, show the Info Box
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo");
 }
@@ -19,5 +19,14 @@ exit_btn.onclick = ()=>{
 continue_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo");
     quiz_box.classList.add("activeQuiz");
+    showQuestions(0)
 }
 
+let que_count = 0
+
+// getting questions and options from array
+function showQuestions(index){
+    const que_text = document.querySelector(".que_text");
+    let que_tag = '<span>'+ questions[index].question +'</span>';
+    que_text.innerHTML = que_tag;
+}
