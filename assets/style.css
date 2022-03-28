@@ -83,7 +83,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     padding: 0 35px;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid whitesmoke;
 }
 
 .info_box .buttons button{
@@ -100,22 +100,21 @@ body {
 }
 
 .buttons button.restart{
-    color: white;
-    background: rgb(75, 4, 75);
-}
-
-.buttons button.restart:hover{
-    background: rgb(146, 8, 146);
+    color:white;
+    background-color: rgb(75, 4, 75);
 }
 
 .buttons button.quit{
     color:rgb(75, 4, 75);
     border-color: rgb(75, 4, 75);
-
 }
 
 .buttons button.quit:hover{
     background: rgb(146, 8, 146);
+}
+
+.buttons button.restart:hover{
+    background-color: rgb(146, 8, 146);
 }
 
 .quiz_box{
@@ -178,14 +177,6 @@ body {
     user-select: none;
 }
 
-.quiz_box header .time_line {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 3px;
-    background: rgb(146, 8, 146)
-}
-
 .quiz_box section{
     padding: 25px 30px 20px 30px;
     background: white;
@@ -246,13 +237,13 @@ section .option_list .option:hover{
 .option_list .option.correct{
     color: green;
     border: green;
-    background: lightgreen;
+    background-color: lightgreen;
 }
 
 .option_list .option.incorrect{
     color: red;
     border: red;
-    background: pink;
+    background-color: pink;
 }
 
 .option_list .option.disabled{
