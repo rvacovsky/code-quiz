@@ -7,7 +7,18 @@ const quiz_box = document.querySelector(".quiz_box");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeUp = quiz_box.querySelector("header .time_text");
 
+
 const option_list = document.querySelector(".option_list");
+let que_count = 0;
+let que_numb = 1;
+let counter;
+let counterLine;
+let timeValue = 75;
+let userScore = 0;
+
+const next_btn = quiz_box.querySelector(".next_btn");
+const result_box = document.querySelector(".result_box");
+const quit_quiz = result_box.querySelector(".buttons .quit");
 
 //When 'Start Quiz' is clicked, show the Info Box
 start_btn.onclick = ()=>{
@@ -24,19 +35,10 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz");
     showQuestions(0);
     queCounter(1);
-    startTimer(75);
+    startTimer();
 }
 
-let que_count = 0;
-let que_numb = 1;
-let counter;
-let counterLine;
-let timeValue = 75;
-let userScore = 0;
 
-const next_btn = quiz_box.querySelector(".next_btn");
-const result_box = document.querySelector(".result_box");
-const quit_quiz = result_box.querySelector(".buttons .quit");
 
 quit_quiz.onclick = ()=>{
     window.location.reload();
@@ -49,13 +51,9 @@ next_btn.onclick = ()=>{
         que_numb++;
         showQuestions(que_count);
         queCounter(que_numb);
-        // clearInterval(counter);
-        // startTimer(timeValue);
-        // clearInterval(counterLine);
         next_btn.style.display = "none";
         timeUp.textContent = "Time Remaining";
     }else{
-        clearInterval(counterLine);
         console.log("Questions completed");
         showResultBox();
     }
@@ -81,29 +79,20 @@ let checkIcon = '<div class="icon check"><i class="fa-solid fa-circle-check"></i
 let xmarkIcon = '<div class="icon xmark"><i class="fa-solid fa-circle-xmark"></i></div>';
 
 function optionSelected(answer){
-    // clearInterval(counter);
-    // clearInterval(counterLine);
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     let allOptions = option_list.children.length;
-    console.log(counter);
     if(userAns == correctAns){
-        console.log(counter);
         answer.classList.add("correct");
         console.log("Answer is Correct");
         answer.insertAdjacentHTML("beforeend", checkIcon);
+     
     }else{
         answer.classList.add("incorrect");
+        timeValue = timeValue - 5;
         console.log("Answer is Wrong");
+        console.log('timeValue',timeValue )
         answer.insertAdjacentHTML("beforeend", xmarkIcon);
-
-        //if answer is incorrect then automatically select the correct answer
-        // for (let i = 0; i < allOptions; i++) {
-        //     if(option_list.children[i].textContent == correctAns) {
-        //         option_list.children[i].setAttribute("class", "option correct");
-        //         option_list.children[i].insertAdjacentHTML("beforeend", checkIcon);   
-        //     }
-        // }
     }
 
     // once user selected disable all options
@@ -115,34 +104,20 @@ function optionSelected(answer){
 
 // Quiz ends and Results Box pops up
 function showResultBox() {
-    //info_box.classList.remove("activeInfo"); // hides the Info Box
     quiz_box.classList.remove("activeQuiz"); // hides the Quiz Box
     result_box.classList.add("activeResult"); // shows the Results Box
-    const scoreText = result_box.querySelector(".score_text");
-    // if (userScore > 3){
-    //     let scoreTag = '<span>and congrats! You got <p>'+ userScore +'</p> out of <p>'+ questions.length + '</p></span>';
-    //     scoreText.innerHTML = scoreTag;
-    // }
-    // else if (userScore > 1){
-    //     let scoreTag = '<span>and nice, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length + '</p></span>';
-    //     scoreText.innerHTML = scoreTag;
-    // }
-    // else {
-    //     let scoreTag = '<span>and sorry, You got <p>'+ userScore +'</p> out of <p>'+ questions.length + '</p></span>';
-    //     scoreText.innerHTML = scoreTag;
-    // }
 }
 
-function startTimer(time){
+function startTimer(){
     counter = setInterval(timer, 1000);
     function timer(){
-        timeCount.textContent = time;
-        time--;
-        if(time < 9){
+        timeCount.textContent = timeValue;
+        timeValue--;
+        if(timeValue < 9){
             let addZero = timeCount.textContent;
             timeCount.textContent = "0" + addZero;
         }
-        if(time < 0){
+        if(timeValue < 0){
             clearInterval(counter);
             timeCount.textContent = "00";
             timeUp.textContent = "Time's Up!";
@@ -164,10 +139,18 @@ function startTimer(time){
     }
 
 }
+// function store(){ //stores items in the localStorage
+//     var score = document.querySelector('timeValue').value;
+//     var key = document.querySelector('key').value; //gets the key from the user
 
+//     const score = {
+//         score: timeValue,
+//     }
 
-function queCounter(index) {
-    const bottom_ques_counter = quiz_box.querySelector(".total_que");
-    let totalQuesCountTag = '<span><p>' + index + '</p>of<p>' + questions.length + '</p>Questions</span>';
-    bottom_ques_counter.innerHTML = totalQuesCountTag;
-}
+//     window.localStorage.setItem(key,JSON.stringify(score));  
+//     //converting object to string
+// }
+
+function queCounter() {
+    
+};
