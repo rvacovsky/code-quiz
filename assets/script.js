@@ -7,7 +7,6 @@ const quiz_box = document.querySelector(".quiz_box");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeUp = quiz_box.querySelector("header .time_text");
 
-
 const option_list = document.querySelector(".option_list");
 let que_count = 0;
 let que_numb = 1;
@@ -15,10 +14,12 @@ let counter;
 let counterLine;
 let timeValue = 75;
 let userScore = 0;
+let initials;
 
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
 const quit_quiz = result_box.querySelector(".buttons .quit");
+const score_btn = result_box.querySelector(".buttons .record");
 
 //When 'Start Quiz' is clicked, show the Info Box
 start_btn.onclick = ()=>{
@@ -37,8 +38,6 @@ continue_btn.onclick = ()=>{
     queCounter(1);
     startTimer();
 }
-
-
 
 quit_quiz.onclick = ()=>{
     window.location.reload();
@@ -86,7 +85,6 @@ function optionSelected(answer){
         answer.classList.add("correct");
         console.log("Answer is Correct");
         answer.insertAdjacentHTML("beforeend", checkIcon);
-     
     }else{
         answer.classList.add("incorrect");
         timeValue = timeValue - 5;
@@ -139,17 +137,32 @@ function startTimer(){
     }
 
 }
-// function store(){ //stores items in the localStorage
-//     var score = document.querySelector('timeValue').value;
-//     var key = document.querySelector('key').value; //gets the key from the user
 
-//     const score = {
-//         score: timeValue,
-//     }
+const getInitials = prompt ("Please enter your initials");
 
-//     window.localStorage.setItem(key,JSON.stringify(score));  
-//     //converting object to string
-// }
+
+function store(){
+    
+
+    const highScore = {
+        initials: "getInitials",
+        score: "TimeValue",
+    }
+
+    const highScoreItems = JSON.stringify(highScore);
+
+    localStorage.setItem("highScore", highScoreItems);
+
+}
+
+const str = localStorage.getItem("highScore");
+
+const parsedObj = JSON.parse(str);
+
+console.log(parsedObj);
+
+
+
 
 function queCounter() {
     
