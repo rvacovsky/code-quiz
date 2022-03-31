@@ -8,14 +8,26 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <h2 id="scores">Hall of Fame</h2>
-        <ol id="highScore"></ol>
+    <div class ="hall">
+    <h2>Hall of Fame</h2>
+        <ol id="scores">
+            <li class="highScore">Initials Score</li>
+        </ol>
+        <div class="buttons">
+            <form action="index.html">
+                <button class="quit">Retry</button> 
+            </form>
+        </div>
+    </div>
 
+    
 
-
-
-    <!--Font Awesome link for Icons-->
-    <script src="https://kit.fontawesome.com/18465520fb.js" crossorigin="anonymous"></script>
+    <!--jQuery link for score retrieval-->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+    </script>
     <script src="./assets/script.js"></script>
     <script src="./assets/questions.js"></script>
 </body>

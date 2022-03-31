@@ -92,7 +92,7 @@ body {
     width: 100px;
     border: 1px solid rgb(75, 4, 75);
     border-radius: 5px;
-    color: white;
+    color: rgb(75, 4, 75);
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
@@ -105,8 +105,17 @@ body {
 }
 
 .buttons button.quit{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
     color:rgb(75, 4, 75);
-    border-color: rgb(75, 4, 75);
+    border: 1px solid rgb(75, 4, 75);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: whitesmoke;
 }
 
 .buttons button.quit:hover{
@@ -295,7 +304,8 @@ footer .next_btn:hover{
 
 .result_box {
     background-color: white;
-    width: 450px;
+    width: 550px;
+    height: 450px;
     padding: 25px 30px;
     border-radius: 5px;
     display: flex;
@@ -304,7 +314,6 @@ footer .next_btn:hover{
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
-    pointer-events: none;
     transform: translate(-50%, -50%) scale(0.5);
 }
 
@@ -366,7 +375,6 @@ footer .next_btn:hover{
     color: rgb(146, 8, 146);
 }
 .buttons .button .record{
-    color:white;
     background-color: rgb(75, 4, 75);
     color: rgb(75, 4, 75);
 }
@@ -376,10 +384,24 @@ footer .next_btn:hover{
     background-color: rgb(146, 8, 146);
 }
 
-h2{
+.hall {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1)
+}
+
+.hall h2{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     color: rgb(146, 8, 146);
 }
+

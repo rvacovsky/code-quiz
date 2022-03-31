@@ -13,8 +13,6 @@ let que_numb = 1;
 let counter;
 let counterLine;
 let timeValue = 75;
-let userScore = 0;
-let initials;
 
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
@@ -138,20 +136,19 @@ function startTimer(){
 
 }
 
-const getInitials = prompt ("Please enter your initials");
-
+const initials = prompt("Please enter your initials");
+console.log(initials);
 
 function store(){
     
 
-    const highScore = {
-        initials: "getInitials",
-        score: "TimeValue",
-    }
+    const highScore = initials + timeValue;
 
     const highScoreItems = JSON.stringify(highScore);
 
     localStorage.setItem("highScore", highScoreItems);
+
+    $("li").appendTo("#scores")
 
 }
 
@@ -162,8 +159,8 @@ const parsedObj = JSON.parse(str);
 console.log(parsedObj);
 
 
-
-
 function queCounter() {
     
 };
+
+score_btn.addEventListener("click", store);
