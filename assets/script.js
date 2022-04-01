@@ -37,10 +37,6 @@ continue_btn.onclick = ()=>{
     startTimer();
 }
 
-quit_quiz.onclick = ()=>{
-    window.location.reload();
-}
-
 //If the Next Button is clicked
 next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){
@@ -71,10 +67,11 @@ function showQuestions(index){
         option[i].setAttribute("onclick", "optionSelected(this)");
     }   
 }
-
+// check mark and x mark
 let checkIcon = '<div class="icon check"><i class="fa-solid fa-circle-check"></i></div>';
 let xmarkIcon = '<div class="icon xmark"><i class="fa-solid fa-circle-xmark"></i></div>';
 
+// Selecting Answers
 function optionSelected(answer){
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
@@ -104,6 +101,7 @@ function showResultBox() {
     result_box.classList.add("activeResult"); // shows the Results Box
 }
 
+// starts timer (that will become user score)
 function startTimer(){
     counter = setInterval(timer, 1000);
     function timer(){
@@ -136,19 +134,22 @@ function startTimer(){
 
 }
 
+// collects initials for high score page
 const initials = prompt("Please enter your initials");
 console.log(initials);
 
+// // stores the initials and the time remaining as the user's score
 function store(){
     
 
-    const highScore = initials + timeValue;
+    const highScore = initials + " - " + timeValue;
 
     const highScoreItems = JSON.stringify(highScore);
 
     localStorage.setItem("highScore", highScoreItems);
 
-    $("li").appendTo("#scores")
+    var highScoreRecord = document.querySelector(".highScore");
+    highScoreRecord.innerHTML = highScore;
 
 }
 
