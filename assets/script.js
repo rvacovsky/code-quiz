@@ -1,11 +1,12 @@
 // Elements
-const start_btn = document.querySelector(".start_btn button");
+const start_btn = document.querySelector(".start_btn");
 const info_box = document.querySelector(".info_box");
-const exit_btn = info_box.querySelector(".buttons .quit");
-const continue_btn = info_box.querySelector(".buttons .restart");
+const exit_btn = info_box.querySelector(".quit");
+const continue_btn = info_box.querySelector(".restart");
 const quiz_box = document.querySelector(".quiz_box");
-const timeCount = quiz_box.querySelector(".timer .timer_sec");
-const timeUp = quiz_box.querySelector("header .time_text");
+const timeCount = quiz_box.querySelector(".timer_sec");
+const timeUp = quiz_box.querySelector(".time_text");
+const retry = document.querySelector(".retry");
 
 const option_list = document.querySelector(".option_list");
 let que_count = 0;
@@ -16,8 +17,8 @@ let timeValue = 75;
 
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
-const quit_quiz = result_box.querySelector(".buttons .quit");
-const score_btn = result_box.querySelector(".buttons .record");
+const quit_quiz = result_box.querySelector(".quit");
+const score_btn = result_box.querySelector(".record");
 
 //When 'Start Quiz' is clicked, show the Info Box
 start_btn.onclick = ()=>{
@@ -28,6 +29,7 @@ start_btn.onclick = ()=>{
 exit_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo");
 }
+
 
 //When 'Continue' is clicked, proceeds to quiz
 continue_btn.onclick = ()=>{

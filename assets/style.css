@@ -405,3 +405,16 @@ footer .next_btn:hover{
     color: rgb(146, 8, 146);
 }
 
+.buttons button.retry{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    color:rgb(75, 4, 75);
+    border: 1px solid rgb(75, 4, 75);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: whitesmoke;
+}
